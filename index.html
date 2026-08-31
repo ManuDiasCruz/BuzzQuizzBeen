@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore quizzes visuais, teste sua curiosidade e crie seus próprios desafios. BuzzQuizz Been: uma nova edição do projeto original.">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styleMobile.css">
+    <link rel="stylesheet" href="css/styleDesktop.css">
+    <link rel="stylesheet" href="css/v2.css">
+    <script defer src="src/core.js"></script>
+    <script defer src="src/collection.js"></script>
+    <script defer src="src/wizard.js"></script>
+    <script defer src="src/script.js"></script>
+    <title>BuzzQuizz — Deixe a curiosidade jogar</title>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+    <header>
+        <div class="header-inner">
+            <button class="wordmark" onclick="paginaInicial()" aria-label="BuzzQuizz, início">Buzz<span>Quizz</span><small>BEEN · V2</small></button>
+            <nav aria-label="Navegação principal"><button class="nav-home" onclick="paginaInicial()">Explorar</button><button class="primary" onclick="chamarTelaCriarQuizz()">+ Criar quizz</button></nav>
+        </div>
+    </header>
+    <p id="app-status" class="app-status" role="status" hidden></p>
+    <noscript><p class="app-status">Ative o JavaScript para jogar e criar quizzes.</p></noscript>
+    <main class="paginaum" id="main-content">
+        <section class="intro" aria-labelledby="intro-title">
+            <div class="intro-copy">
+                <p class="eyebrow">PARA QUEM NUNCA PARA DE DESCOBRIR</p>
+                <h1 id="intro-title">Deixe a<br>curiosidade <em>jogar.</em></h1>
+                <p class="intro-description">Um novo assunto. Uma boa pergunta.<br>O próximo “eu sabia!” começa aqui.</p>
+                <a class="primary intro-link" href="#featured">Encontre seu próximo desafio <span aria-hidden="true">↗</span></a>
+                <div class="intro-note"><span class="status-dot"></span> Gratuito, sem cadastro e no seu ritmo.</div>
+            </div>
+            <div class="intro-art" aria-hidden="true">
+                <img src="img/collection/red-panda.webp" alt="" fetchpriority="high" width="960" height="640">
+                <span class="photo-stamp">UM MUNDO<br>DE PERGUNTAS.</span>
+                <div class="photo-caption"><span>COMECE COM UMA DESCOBERTA</span><strong>Pequeno panda.<br>Grande curiosidade.</strong><span class="round-arrow">↗</span></div>
+            </div>
+        </section>
+        <section class="featured" id="featured" aria-labelledby="featured-title">
+            <div class="section-heading"><div><p class="eyebrow">ESCOLHIDOS A DEDO</p><h2 id="featured-title">Três caminhos para explorar</h2></div><span class="section-note">3 perguntas. Novas descobertas.</span></div>
+            <div class="card-grid" id="collection"></div>
+        </section>
+        <section class="criarprimeiroquizz"><div><span class="eyebrow">AGORA É A SUA VEZ</span><h2>Todo mundo sabe algo que vale um quizz.</h2><p>Transforme suas ideias em perguntas. A gente cuida do resto.</p></div><button class="secondary" onclick="chamarTelaCriarQuizz()">Criar meu primeiro quizz ↗</button></section>
+        <section class="meus-quizzes" aria-labelledby="my-title"><div class="section-heading novo-quizz"><h2 id="my-title">Feitos por você</h2><button class="secondary" onclick="chamarTelaCriarQuizz()">+ Novo quizz</button></div><div class="quizzes-criados card-grid"></div></section>
+        <section class="todososquizzes" aria-labelledby="community-title">
+            <div class="section-heading"><div><p class="eyebrow">MAIS OLHARES, MAIS ASSUNTOS</p><h2 id="community-title">Da comunidade</h2></div><button class="secondary" id="refresh-quizzes" onclick="getAllQuizz()">Atualizar ↻</button></div>
+            <div class="search-row"><label class="search-field"><span aria-hidden="true">⌕</span><input type="search" id="quiz-search" placeholder="Buscar um assunto…" aria-label="Buscar quizzes da comunidade"></label><span id="community-count"></span></div>
+            <p id="community-status" role="status"></p>
+            <p id="empty-search" hidden>Nenhum quizz encontrado. Tente outro assunto.</p>
+            <div class="quizzes card-grid"></div>
+        </section>
+    </main>
+    <main class="pagina-quizz" aria-label="Jogar quizz"></main>
+    <div class="fim"></div>
+    <div class="cria-quizz">
+        <main class="vamos-comecar">
+            <p class="eyebrow">SEU QUIZZ · ETAPA 1 DE 3</p>
+            <h1>Comece pelo começo</h1>
+            <p class="form-intro">Escolha um título, uma capa e o tamanho do seu desafio.</p>
+            <div class="primeiro-forms">
+                <input class="titulo-quizz" type="text" placeholder="Título do seu quizz" minlength="20" maxlength="65">
+                <input class="url-quizz" type="url" placeholder="URL da imagem do seu quizz">
+                <input class="numero-perguntas" type="number" placeholder="Quantidade de perguntas (3 a 20)" min="3" max="20" step="1">
+                <input class="quantidade-niveis" type="number" placeholder="Quantidade de níveis (2 a 10)" min="2" max="10" step="1">
+            </div>
+            <p class="form-hint">Fotos da galeria têm licença Pixabay. Ao usar outra imagem, confira a licença. O quizz será público: não inclua dados pessoais.</p>
+            <button class="prosseguir" onclick="validarDadosBasicos()">Prosseguir pra criar perguntas →</button>
+            <button class="cancel-creation secondary" onclick="paginaInicial()">Cancelar e voltar</button>
+        </main>
+        <main class="cria-perguntas" aria-label="Etapa 2: perguntas"></main>
+        <main class="cria-niveis" aria-label="Etapa 3: níveis"></main>
+        <main class="sucesso-quizz"></main>
+    </div>
+    <footer><span class="footer-brand">BuzzQuizz <small>FEITO PARA MENTES CURIOSAS.</small></span><div><a href="https://github.com/ManuDiasCruz/BuzzQuizz">Projeto original ↗</a><a href="credits.html">Créditos das imagens ↗</a></div></footer>
+</body>
+</html>
