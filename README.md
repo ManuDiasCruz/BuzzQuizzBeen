@@ -1,6 +1,6 @@
 # BuzzQuizz Been — deployment
 
-Built from [ManuDiasCruz/BuzzQuizz](https://github.com/ManuDiasCruz/BuzzQuizz), branch `buzzquizz-been`, revision `14d755665e26c40a1e4bcd59850802059848d189`.
+Built from [ManuDiasCruz/BuzzQuizz](https://github.com/ManuDiasCruz/BuzzQuizz), branch `buzzquizz-been`, revision `62ea522937a6b4e0b5f406c490b269213238dacc`.
 
 [Live site](https://manudiascruz.github.io/BuzzQuizzBeen/) · [Source and documentation](https://github.com/ManuDiasCruz/BuzzQuizz/tree/buzzquizz-been)
 
